@@ -1,24 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import AddTodo from "./features/AddTodo";
+import TodoList from "./features/TodoList";
+import { Container, Navbar } from "react-bootstrap";
 
 function App() {
+  const [formInputData, setFormInputData] = useState({
+    id: "",
+    title: "",
+    description: "",
+    completed: false,
+  });
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Navbar bg="dark" data-bs-theme="dark">
+        <Container>
+          <Navbar.Brand bg="light">Todo App</Navbar.Brand>
+        </Container>
+      </Navbar>
+      <Container>
+        <AddTodo
+          formInputData={formInputData}
+          setFormInputData={setFormInputData}
+        />
+        <hr />
+        <TodoList setFormInputData={setFormInputData} />
+      </Container>
+    </>
   );
 }
 
