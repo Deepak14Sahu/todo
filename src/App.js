@@ -10,6 +10,7 @@ function App() {
     description: "",
     completed: false,
   });
+
   return (
     <>
       <Navbar bg="dark" data-bs-theme="dark">

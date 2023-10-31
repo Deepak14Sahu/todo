@@ -56,7 +56,11 @@ const TodoList = ({ setFormInputData }) => {
   return (
     <>
       <h1>Todos</h1>
-      <ListGroup>{renderedTodo}</ListGroup>
+      {Todos.length > 0 ? (
+        <ListGroup>{renderedTodo}</ListGroup>
+      ) : (
+        <div>No todos available</div>
+      )}
     </>
   );
 };

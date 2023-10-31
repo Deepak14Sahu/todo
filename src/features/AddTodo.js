@@ -6,9 +6,7 @@ import { Button } from "react-bootstrap";
 
 const AddTodo = ({ formInputData, setFormInputData }) => {
   const dispatch = useDispatch();
-  const id = formInputData.id;
-  const title = formInputData.title;
-  const description = formInputData.description;
+  const { id, title, description } = formInputData;
 
   const handleChange = (e) => {
     setFormInputData({ ...formInputData, [e.target.name]: e.target.value });

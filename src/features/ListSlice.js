@@ -23,12 +23,18 @@ const ListSlice = createSlice({
     updateTodo(state, action) {
       const { id, title, description } = action.payload;
       const todoUpdate = state.find((todo) => todo.id === id);
-      todoUpdate.title = title;
-      todoUpdate.description = description;
+      if (todoUpdate) {
+        todoUpdate.title = title;
+        todoUpdate.description = description;
+      } else console.error(`Todo with ${id} not found`);
     },
     completeTodo(state, action) {
       const todoUpdate = state.find((todo) => todo.id === action.payload.id);
-      todoUpdate.completed = !todoUpdate.completed;
+      if (todoUpdate) {
+        todoUpdate.completed = !todoUpdate.completed;
+      } else {
+        console.error(`Todo with id ${action.payload.id} not found`);
+      }
     },
   },
 });
